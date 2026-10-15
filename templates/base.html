@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>{% block titulo %}Viajes y Turismo{% endblock %}</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'bienvenida' %}">Inicio</a> |
+        <a href="{% url 'panel' %}">Panel (función)</a> |
+        <a href="{% url 'catalogo' %}">Catálogo (clase)</a> |
+        {% if request.user.is_authenticated %}
+            Hola, {{ request.user.username }}
+            <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit">Cerrar sesión</button>
+            </form>
+        {% else %}
+            <a href="{% url 'login' %}">Iniciar sesión</a>
+        {% endif %}
+    </nav>
+    <hr>
+    <h1>{% block encabezado %}{% endblock %}</h1>
+    {% block contenido %}{% endblock %}
+</body>
+</html>

@@ -12,5 +12,8 @@ router.register("reservas", views.ReservaViewSet)
 
 urlpatterns = [
     path("", views.bienvenida, name="bienvenida"),
+    path("panel/", views.panel, name="panel"),
+    path("catalogo/", views.CatalogoToursView.as_view(), name="catalogo"),
     path("api/", include(router.urls)),
 ]
+

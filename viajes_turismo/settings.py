@@ -26,7 +26,11 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.app.github.dev']
-CSRF_TRUSTED_ORIGINS = ['https://*.app.github.dev']
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.app.github.dev',
+    'https://localhost:8000',
+    'http://localhost:8000',
+]
 
 # Application definition
 
@@ -133,3 +137,8 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,
 }
+
+# Autenticación
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'

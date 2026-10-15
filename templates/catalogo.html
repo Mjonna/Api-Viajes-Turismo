@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block titulo %}Catálogo{% endblock %}
+{% block encabezado %}Catálogo de tours{% endblock %}
+
+{% block contenido %}
+<p>Vista protegida con <strong>clase</strong> (LoginRequiredMixin).</p>
+{% if tours %}
+<table border="1" cellpadding="6">
+    <tr>
+        <th>Tour</th><th>Destino</th><th>Días</th><th>Precio</th><th>Cupos</th>
+    </tr>
+    {% for tour in tours %}
+    <tr>
+        <td>{{ tour.nombre }}</td>
+        <td>{{ tour.destino }}</td>
+        <td>{{ tour.duracion_dias }}</td>
+        <td>${{ tour.precio }}</td>
+        <td>{{ tour.cupos }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No hay tours registrados todavía.</p>
+{% endif %}
+{% endblock %}

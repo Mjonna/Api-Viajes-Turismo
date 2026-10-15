@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block titulo %}Panel{% endblock %}
+{% block encabezado %}Panel de control{% endblock %}
+
+{% block contenido %}
+<p>Vista protegida con <strong>función</strong> (@login_required).</p>
+<ul>
+    <li>Destinos: {{ total_destinos }}</li>
+    <li>Tours: {{ total_tours }}</li>
+    <li>Clientes: {{ total_clientes }}</li>
+    <li>Reservas: {{ total_reservas }}</li>
+</ul>
+{% endblock %}
